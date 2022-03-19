@@ -24,9 +24,55 @@ class MainWordView: UIView {
         Word(name: "Unbarreled", definition: "not in a barrel", partOfSpeech: "adjective")
     ]
     
-    var title: String = ""
-    var type: String = ""
-    var definition: String = ""
+    var wordTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.text = ""
+        label.font = UIFont(name: "Chalkduster", size: 25)
+        return label
+    }()
+    
+    var wordType: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = ""
+//        label.addUnderline()
+        label.textColor = .white
+        label.font = UIFont(name: "Chalkduster", size: 15)
+
+        return label
+    }()
+    
+    var wordDefinition: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = ""
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont(name: "Chalkduster", size: 20)
+
+        return label
+    }()
+    
+    let eraserView: UIView = {
+        let view = UIView(frame: CGRect(x: 25, y: 30, width: 60, height: 120))
+        view.backgroundColor = .darkGray
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 3
+        return view
+    }()
+    
+    lazy var refreshButton: RefreshButton = {
+        let button = RefreshButton{ [weak self] in
+            self?.changeMainWord()
+        }
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -36,7 +82,7 @@ class MainWordView: UIView {
         layer.borderWidth = 8
         layer.borderColor = UIColor(hexString: "#93532D").cgColor
         
-        changeMainWord()
+        staterWord()
         setUpViews()
     }
     
@@ -45,38 +91,6 @@ class MainWordView: UIView {
     }
     
     func setUpViews() {
-        let wordTitle: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.textColor = .white
-            label.text = title
-            label.font = UIFont(name: "Chalkduster", size: 24)
-            return label
-        }()
-
-        let wordType: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = type
-            label.addUnderline()
-            label.textColor = .white
-            label.font = UIFont(name: "Chalkduster", size: 15)
-
-            return label
-        }()
-
-        let wordDefinition: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = definition
-            label.textColor = .white
-            label.numberOfLines = 0
-            label.lineBreakMode = .byWordWrapping
-            label.font = UIFont(name: "Chalkduster", size: 18)
-
-            return label
-        }()
-
         let wordTitleAndTypeStackView: UIStackView = {
             let stackView = UIStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,47 +98,30 @@ class MainWordView: UIView {
             stackView.addArrangedSubview(wordTitle)
             stackView.addArrangedSubview(wordType)
 
-            stackView.setCustomSpacing(35, after: wordTitle)
-            stackView.axis = .horizontal
+            stackView.setCustomSpacing(10, after: wordTitle)
+            stackView.axis = .vertical
 
             return stackView
         }()
         
-        lazy var refreshButton: RefreshButton = {
-            let button = RefreshButton{ [weak self] in
-                self?.changeMainWord()
-            }
-            
-            button.translatesAutoresizingMaskIntoConstraints = false
-            
-            return button
-        }()
+        wordType.addUnderline()
+        eraserView.layer.opacity = 0
         
         addSubview(wordTitleAndTypeStackView)
-//        addSubview(wordTitle)
-//        addSubview(wordType)
         addSubview(wordDefinition)
+        addSubview(eraserView)
         addSubview(refreshButton)
 
         NSLayoutConstraint.activate([
             wordTitleAndTypeStackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 15),
             wordTitleAndTypeStackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
-            
-//            wordTitle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 20),
-//            wordTitle.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 20),
-//            wordTitle.trailingAnchor.constraint(lessThanOrEqualTo: wordType.leadingAnchor),
-//            
-//            wordType.topAnchor.constraint(equalTo: wordTitle.layoutMarginsGuide.topAnchor, constant: -2),
-//            wordType.leadingAnchor.constraint(equalTo: wordTitle.layoutMarginsGuide.trailingAnchor, constant: 25),
-//            wordType.trailingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.trailingAnchor, constant: -10),
 
-            wordDefinition.topAnchor.constraint(equalTo: wordTitle.bottomAnchor, constant: 10),
-            wordDefinition.leadingAnchor.constraint(equalTo: wordTitle.leadingAnchor),
+            wordDefinition.topAnchor.constraint(equalTo: wordTitleAndTypeStackView.bottomAnchor, constant: 10),
+            wordDefinition.leadingAnchor.constraint(equalTo: wordTitleAndTypeStackView.leadingAnchor),
             wordDefinition.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -15),
             
-            refreshButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            refreshButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -5),
             refreshButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            refreshButton.widthAnchor.constraint(equalTo: heightAnchor),
         ])
     }
 }
@@ -134,24 +131,60 @@ extension MainWordView {
         let word: Word = words.randomElement()!
         return word
     }
+    
+    func staterWord() {
+        let newWord = chooseRandomWord()
+        
+        wordTitle.text = newWord.name
+        wordType.text = newWord.partOfSpeech
+        wordDefinition.text = newWord.definition
+    }
 
     func changeMainWord() {
         let newWord = chooseRandomWord()
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: { [self] in
-            title = ""
-            type = ""
-            definition = ""
-        }, completion: {[self] _ in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.title = newWord.name
-                self.type = newWord.partOfSpeech
-                self.definition = newWord.definition
-                setUpViews()
+            refreshButton.isEnabled = false
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: { [self] in
+                eraserView.layer.opacity = 1
+            }, completion: {[self] _ in
+                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: { [self] in
+                    wordTitle.layer.opacity = 0
+                    wordType.layer.opacity = 0
+                    wordDefinition.layer.opacity = 0
+                })
             })
+            
+        }, completion: {[self] _ in
+            
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseInOut, animations: { [self] in
+                eraserView.transform = CGAffineTransform(translationX: (frame.maxX-125), y: 0)
+            }, completion: {[self] _ in
+                
+                UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseIn, animations: {
+                    self.wordTitle.text = newWord.name
+                    self.wordType.text = newWord.partOfSpeech
+                    self.wordDefinition.text = newWord.definition
+                    
+                    wordTitle.layer.opacity = 1
+                    wordType.layer.opacity = 1
+                    wordDefinition.layer.opacity = 1
+                    eraserView.layer.opacity = 0
+                }, completion: {[self] _ in
+                    eraserView.transform = CGAffineTransform(translationX: 0, y: 0)
+                    refreshButton.isEnabled = true
+                })
+            })
+            
         })
-        
-        setNeedsLayout()
+    }
+}
+
+extension UILabel {
+    func addUnderline() {
+        self.attributedText = NSAttributedString(string: self.text!,
+                   attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
 }
 

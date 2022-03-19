@@ -52,7 +52,7 @@ class ViewController: UIViewController {
             mainWordView.topAnchor.constraint(equalTo: mainViewAppTitle.bottomAnchor, constant: 50),
             mainWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mainWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            mainWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
         ])
     }
 }
@@ -85,11 +85,3 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
-
-extension UILabel {
-    func addUnderline() {
-        self.attributedText = NSAttributedString(string: self.text!,
-                   attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
-    }
-}
-
