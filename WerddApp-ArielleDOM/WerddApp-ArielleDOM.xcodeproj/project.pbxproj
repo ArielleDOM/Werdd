@@ -12,6 +12,17 @@
 		819DBE7127E15F0100030614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE7027E15F0100030614 /* ViewController.swift */; };
 		819DBE7627E15F0100030614 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE7527E15F0100030614 /* Assets.xcassets */; };
 		819DBE7927E15F0100030614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE7727E15F0100030614 /* LaunchScreen.storyboard */; };
+		819DBE8127E165F100030614 /* RandomWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE8027E165F100030614 /* RandomWordView.swift */; };
+		819DBE8B27E4031700030614 /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8527E4030800030614 /* Sora-Bold.ttf */; };
+		819DBE8C27E4031700030614 /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8627E4030800030614 /* Sora-Regular.ttf */; };
+		819DBE8D27E4031700030614 /* Sora-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8927E4030800030614 /* Sora-Light.ttf */; };
+		819DBE8E27E4031700030614 /* Sora-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8727E4030800030614 /* Sora-Thin.ttf */; };
+		819DBE8F27E4031700030614 /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8327E4030800030614 /* Sora-ExtraLight.ttf */; };
+		819DBE9027E4031700030614 /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8A27E4030800030614 /* Sora-ExtraBold.ttf */; };
+		819DBE9127E4031700030614 /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8827E4030800030614 /* Sora-Medium.ttf */; };
+		819DBE9227E4031700030614 /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 819DBE8427E4030800030614 /* Sora-SemiBold.ttf */; };
+		819DBE9427E535FD00030614 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE9327E535FD00030614 /* Word.swift */; };
+		819DBE9627E626B300030614 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE9527E626B300030614 /* RefreshButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +33,17 @@
 		819DBE7527E15F0100030614 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819DBE7827E15F0100030614 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		819DBE7A27E15F0100030614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		819DBE8027E165F100030614 /* RandomWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordView.swift; sourceTree = "<group>"; };
+		819DBE8327E4030800030614 /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-ExtraLight.ttf"; path = "../../../../../Downloads/Sora/static/Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
+		819DBE8427E4030800030614 /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-SemiBold.ttf"; path = "../../../../../Downloads/Sora/static/Sora-SemiBold.ttf"; sourceTree = "<group>"; };
+		819DBE8527E4030800030614 /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-Bold.ttf"; path = "../../../../../Downloads/Sora/static/Sora-Bold.ttf"; sourceTree = "<group>"; };
+		819DBE8627E4030800030614 /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-Regular.ttf"; path = "../../../../../Downloads/Sora/static/Sora-Regular.ttf"; sourceTree = "<group>"; };
+		819DBE8727E4030800030614 /* Sora-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-Thin.ttf"; path = "../../../../../Downloads/Sora/static/Sora-Thin.ttf"; sourceTree = "<group>"; };
+		819DBE8827E4030800030614 /* Sora-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-Medium.ttf"; path = "../../../../../Downloads/Sora/static/Sora-Medium.ttf"; sourceTree = "<group>"; };
+		819DBE8927E4030800030614 /* Sora-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-Light.ttf"; path = "../../../../../Downloads/Sora/static/Sora-Light.ttf"; sourceTree = "<group>"; };
+		819DBE8A27E4030800030614 /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-ExtraBold.ttf"; path = "../../../../../Downloads/Sora/static/Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
+		819DBE9327E535FD00030614 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		819DBE9527E626B300030614 /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +76,33 @@
 		819DBE6B27E15F0100030614 /* WerddApp-ArielleDOM */ = {
 			isa = PBXGroup;
 			children = (
+				819DBE8227E402F300030614 /* Sora */,
 				819DBE6C27E15F0100030614 /* AppDelegate.swift */,
 				819DBE6E27E15F0100030614 /* SceneDelegate.swift */,
 				819DBE7027E15F0100030614 /* ViewController.swift */,
+				819DBE8027E165F100030614 /* RandomWordView.swift */,
+				819DBE9327E535FD00030614 /* Word.swift */,
+				819DBE9527E626B300030614 /* RefreshButton.swift */,
 				819DBE7527E15F0100030614 /* Assets.xcassets */,
 				819DBE7727E15F0100030614 /* LaunchScreen.storyboard */,
 				819DBE7A27E15F0100030614 /* Info.plist */,
 			);
 			path = "WerddApp-ArielleDOM";
+			sourceTree = "<group>";
+		};
+		819DBE8227E402F300030614 /* Sora */ = {
+			isa = PBXGroup;
+			children = (
+				819DBE8527E4030800030614 /* Sora-Bold.ttf */,
+				819DBE8A27E4030800030614 /* Sora-ExtraBold.ttf */,
+				819DBE8327E4030800030614 /* Sora-ExtraLight.ttf */,
+				819DBE8927E4030800030614 /* Sora-Light.ttf */,
+				819DBE8827E4030800030614 /* Sora-Medium.ttf */,
+				819DBE8627E4030800030614 /* Sora-Regular.ttf */,
+				819DBE8427E4030800030614 /* Sora-SemiBold.ttf */,
+				819DBE8727E4030800030614 /* Sora-Thin.ttf */,
+			);
+			path = Sora;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +163,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819DBE9127E4031700030614 /* Sora-Medium.ttf in Resources */,
+				819DBE8C27E4031700030614 /* Sora-Regular.ttf in Resources */,
 				819DBE7927E15F0100030614 /* LaunchScreen.storyboard in Resources */,
+				819DBE8D27E4031700030614 /* Sora-Light.ttf in Resources */,
+				819DBE9227E4031700030614 /* Sora-SemiBold.ttf in Resources */,
+				819DBE8B27E4031700030614 /* Sora-Bold.ttf in Resources */,
+				819DBE8E27E4031700030614 /* Sora-Thin.ttf in Resources */,
+				819DBE9027E4031700030614 /* Sora-ExtraBold.ttf in Resources */,
+				819DBE8F27E4031700030614 /* Sora-ExtraLight.ttf in Resources */,
 				819DBE7627E15F0100030614 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +184,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				819DBE7127E15F0100030614 /* ViewController.swift in Sources */,
+				819DBE9627E626B300030614 /* RefreshButton.swift in Sources */,
+				819DBE8127E165F100030614 /* RandomWordView.swift in Sources */,
+				819DBE9427E535FD00030614 /* Word.swift in Sources */,
 				819DBE6D27E15F0100030614 /* AppDelegate.swift in Sources */,
 				819DBE6F27E15F0100030614 /* SceneDelegate.swift in Sources */,
 			);
