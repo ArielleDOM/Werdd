@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     var mainWordView: MainWordView
+    var tableView: WerddTableView
     
     init(){
         self.mainWordView = MainWordView()
+        self.tableView = WerddTableView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,9 +42,11 @@ class ViewController: UIViewController {
         }()
         
         mainWordView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(mainViewAppTitle)
         view.addSubview(mainWordView)
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             mainViewAppTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -52,7 +56,12 @@ class ViewController: UIViewController {
             mainWordView.topAnchor.constraint(equalTo: mainViewAppTitle.bottomAnchor, constant: 50),
             mainWordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainWordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            mainWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
+            mainWordView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            
+            tableView.topAnchor.constraint(equalTo: mainWordView.bottomAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 }

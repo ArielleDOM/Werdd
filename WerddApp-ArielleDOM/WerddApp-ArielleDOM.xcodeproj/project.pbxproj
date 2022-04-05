@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81975C0E27F2905F00F45629 /* WerddTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81975C0D27F2905F00F45629 /* WerddTableView.swift */; };
 		819DBE6D27E15F0100030614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE6C27E15F0100030614 /* AppDelegate.swift */; };
 		819DBE6F27E15F0100030614 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE6E27E15F0100030614 /* SceneDelegate.swift */; };
 		819DBE7127E15F0100030614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DBE7027E15F0100030614 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81975C0D27F2905F00F45629 /* WerddTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WerddTableView.swift; sourceTree = "<group>"; };
 		819DBE6927E15F0100030614 /* WerddApp-ArielleDOM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WerddApp-ArielleDOM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		819DBE6C27E15F0100030614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		819DBE6E27E15F0100030614 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				819DBE7027E15F0100030614 /* ViewController.swift */,
 				819DBE8027E165F100030614 /* RandomWordView.swift */,
 				819DBE9327E535FD00030614 /* Word.swift */,
+				81975C0D27F2905F00F45629 /* WerddTableView.swift */,
 				819DBE9527E626B300030614 /* RefreshButton.swift */,
 				819DBE7527E15F0100030614 /* Assets.xcassets */,
 				819DBE7727E15F0100030614 /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81975C0E27F2905F00F45629 /* WerddTableView.swift in Sources */,
 				819DBE7127E15F0100030614 /* ViewController.swift in Sources */,
 				819DBE9627E626B300030614 /* RefreshButton.swift in Sources */,
 				819DBE8127E165F100030614 /* RandomWordView.swift in Sources */,

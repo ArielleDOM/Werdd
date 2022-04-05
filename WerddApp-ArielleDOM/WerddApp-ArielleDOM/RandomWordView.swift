@@ -11,17 +11,17 @@ import UIKit
 import UIKit
 
 class MainWordView: UIView {
-    let words = [
-        Word(name: "Antelope Chipmunk", definition: "small ground squirrel of western United States", partOfSpeech: "noun"),
-        Word(name: "Auricular Artery", definition: "artery that supplies blood to the ear", partOfSpeech: "noun"),
-        Word(name: "Electric Circuit", definition: "an electrical device that provides a path for electrical current to flow", partOfSpeech: "noun"),
-        Word(name: "Punic", definition: "of or relating to or characteristic of ancient Carthage or its people or their language", partOfSpeech: "adjective"),
-        Word(name: "Glib", definition: "artfully persuasive in speech", partOfSpeech: "adjective"),
-        Word(name: "Appetite", definition: "a feeling of craving something", partOfSpeech: "noun"),
-        Word(name: "Authoritatively", definition: "in an authoritative and magisterial manner", partOfSpeech: "adverb"),
-        Word(name: "Golf Links", definition: "a golf course that is built on sandy ground near a shore", partOfSpeech: "noun"),
-        Word(name: "Unsay", definition: "take back what one has said", partOfSpeech: "verb"),
-        Word(name: "Unbarreled", definition: "not in a barrel", partOfSpeech: "adjective")
+    static let words = [
+        Word(name: "Antelope Chipmunk", definition: "small ground squirrel of western United States", type: "noun"),
+        Word(name: "Auricular Artery", definition: "artery that supplies blood to the ear", type: "noun"),
+        Word(name: "Electric Circuit", definition: "an electrical device that provides a path for electrical current to flow", type: "noun"),
+        Word(name: "Punic", definition: "of or relating to or characteristic of ancient Carthage or its people or their language", type: "adjective"),
+        Word(name: "Glib", definition: "artfully persuasive in speech", type: "adjective"),
+        Word(name: "Appetite", definition: "a feeling of craving something", type: "noun"),
+        Word(name: "Authoritatively", definition: "in an authoritative and magisterial manner", type: "adverb"),
+        Word(name: "Golf Links", definition: "a golf course that is built on sandy ground near a shore", type: "noun"),
+        Word(name: "Unsay", definition: "take back what one has said", type: "verb"),
+        Word(name: "Unbarreled", definition: "not in a barrel", type: "adjective")
     ]
     
     var wordTitle: UILabel = {
@@ -29,7 +29,7 @@ class MainWordView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = ""
-        label.font = UIFont(name: "Chalkduster", size: 25)
+        label.font = UIFont(name: "Chalkduster", size: 20)
         return label
     }()
     
@@ -37,9 +37,8 @@ class MainWordView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
-//        label.addUnderline()
         label.textColor = .white
-        label.font = UIFont(name: "Chalkduster", size: 15)
+        label.font = UIFont(name: "Chalkduster", size: 10)
 
         return label
     }()
@@ -51,13 +50,13 @@ class MainWordView: UIView {
         label.textColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Chalkduster", size: 20)
+        label.font = UIFont(name: "Chalkduster", size: 15)
 
         return label
     }()
     
     let eraserView: UIView = {
-        let view = UIView(frame: CGRect(x: 25, y: 30, width: 60, height: 120))
+        let view = UIView(frame: CGRect(x: 25, y: 15, width: 50, height: 90))
         view.backgroundColor = .darkGray
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 3
@@ -128,7 +127,7 @@ class MainWordView: UIView {
 
 extension MainWordView {
     func chooseRandomWord() -> Word{
-        let word: Word = words.randomElement()!
+        let word: Word = MainWordView.words.randomElement()!
         return word
     }
     
@@ -136,7 +135,7 @@ extension MainWordView {
         let newWord = chooseRandomWord()
         
         wordTitle.text = newWord.name
-        wordType.text = newWord.partOfSpeech
+        wordType.text = newWord.type
         wordDefinition.text = newWord.definition
     }
 
@@ -164,7 +163,7 @@ extension MainWordView {
                 
                 UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseIn, animations: {
                     self.wordTitle.text = newWord.name
-                    self.wordType.text = newWord.partOfSpeech
+                    self.wordType.text = newWord.type
                     self.wordDefinition.text = newWord.definition
                     
                     wordTitle.layer.opacity = 1

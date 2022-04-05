@@ -10,5 +10,5 @@ import Foundation
 struct Word {
     let name: String
     let definition: String
-    let partOfSpeech: String
+    let type: String
 }
